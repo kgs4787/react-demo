@@ -1,43 +1,14 @@
 import * as React from 'react';
 import Head from 'next/head';
-import { withStyles } from '@material-ui/core/styles';
 import AppBar from '../organisms/AppBar';
 import { observer, inject } from 'mobx-react';
 import * as Routes from '../../lib/routes';
-import { Theme, createStyles } from '@material-ui/core';
-import withBackground from '../wrappers/withBackground';
 import { User } from '../../mobx/Chat';
 import ChatWindow from '../organisms/ChatWindow';
 import Paper from '@material-ui/core/Paper';
 import InputArea from '../organisms/InputArea';
 import Messages from '../organisms/Messages';
 import { scroller } from 'react-scroll';
-
-const styles = (theme: Theme) =>
-  createStyles({
-    root: {
-      margin: theme.spacing.unit * 2,
-      overflow: 'hidden',
-    },
-    space: {
-      ...theme.mixins.toolbar,
-      marginBottom: 10,
-    },
-    paper: {
-      ...theme.mixins.gutters(),
-      paddingTop: theme.spacing.unit * 2,
-      paddingBottom: theme.spacing.unit * 2,
-    },
-    window: {
-      margin: '5px 0',
-      padding: theme.spacing.unit,
-      boxSizing: 'border-box',
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-    },
-  });
 
 type Props = {
   chat: {
@@ -71,7 +42,10 @@ type Props = {
   };
   bgStyle: {};
 };
+<<<<<<< HEAD
 
+=======
+>>>>>>> e09fc21260618a7655f258eacbfcfc0ae48910b1
 const withMain = (Page: any) => {
   @inject('chat')
   @observer
@@ -189,7 +163,6 @@ const withMain = (Page: any) => {
         containerId: receiver.socketId,
       });
     };
-
     render() {
       const { classes, router, chat, bgStyle } = this.props;
       const { user, users, invites, toggleWindow } = chat;
@@ -251,10 +224,6 @@ const withMain = (Page: any) => {
       );
     }
   }
-
-  return withStyles(styles, { name: 'MainWrapper' })(
-    withBackground(MainWrapper as any)
-  );
 };
 
 export default withMain;
