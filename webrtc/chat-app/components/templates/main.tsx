@@ -72,16 +72,7 @@ type Props = {
   bgStyle: {};
 };
 
-/**
- * 메인 템플릿 HOC
- * @param Page 메인 컴포넌트
- */
 const withMain = (Page: any) => {
-  /**
-   * 메인 템플릿 컴포넌트
-   * @class MainWrapper
-   * @extends {React.Component<Props>}
-   */
   @inject('chat')
   @observer
   class MainWrapper extends React.Component<Props> {
@@ -91,41 +82,24 @@ const withMain = (Page: any) => {
       };
     }
 
-    /**
-     * 컴포넌트 마운트
-     */
     componentDidMount() {
       const { chat } = this.props;
       const { user, socket } = chat;
 
-      /**
-       * @desc 사용자 정보가 없을 경우 로그인 페이지로 이동
-       */
       if (!user.userId || !user.socketId) {
         Routes.Router.pushRoute('/');
       }
 
       if (socket) {
-        /**
-         * @desc 서버로부터 전달받은 로그아웃 응답 처리
-         * @desc 로그인 페이지로 이동 후 새로고침
-         * @desc 채팅방 퇴장 시 퇴장한 사용자 정보 유지를 위해 전역 데이터 함수를 호출하지 않음
-         */
         socket.on('logout', () => {
           Routes.Router.pushRoute('/');
           (document.location as Location).replace('/');
         });
 
-        /**
-         * @desc 서버로부터 전달받은 전체 사용자 목록 업데이트 응답 처리
-         */
         socket.on('updateUsers', ({ users }) => {
           chat.setUsers(users);
         });
 
-        /**
-         * @desc 서버로부터 전달받은 현재 사용자의 초대받은 목록 업데이트 응답 처리
-         */
         socket.on('inviteRoom', (data) => {
           chat.setInvites(data);
         });
@@ -166,9 +140,6 @@ const withMain = (Page: any) => {
       }
     }
 
-    /**
-     * 로그아웃 처리를 위한 클라이언트 측 요청
-     */
     logout = () => {
       const { socket, user } = this.props.chat;
       socket.emit('logout', { user });
@@ -219,12 +190,6 @@ const withMain = (Page: any) => {
       });
     };
 
-    /**
-     * 렌더링
-     * @desc 상단 앱 바 컴포넌트 및 페이지 컴포넌트 반환
-     * @desc next/Head 를 활용한 title 설정
-     * @returns {Component}
-     */
     render() {
       const { classes, router, chat, bgStyle } = this.props;
       const { user, users, invites, toggleWindow } = chat;
