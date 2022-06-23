@@ -1,0 +1,452 @@
+html {
+  font-size: 14px;
+}
+
+body.light-mode {
+  background-color: #fff;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0em;
+  margin-bottom: 0px;
+}
+body.dark-mode {
+  background-color: #1a1919;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0em;
+  margin-bottom: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1.5rem 0 1rem 0;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
+p {
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+}
+
+.card {
+  margin-bottom: 0rem;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+  50% {
+    background-color: rgba(165, 165, 165, 0.3);
+  }
+  100% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+}
+
+body.light-mode .title {
+  flex-direction: row;
+  display: flex;
+  font-size: x-large;
+  align-items: center;
+  justify-self: flex-start;
+  text-align: left;
+}
+
+body.dark-mode .title {
+  flex-direction: row;
+  display: flex;
+  font-size: x-large;
+  align-items: center;
+  justify-self: flex-start;
+  text-align: left;
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+
+body.light-mode .top-bar-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    ". . ."
+    "leftsidebar title regbutton"
+    ". . .";
+  height: 50px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  font-weight: bold;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  border-color: rgb(170, 166, 166);
+}
+
+body.light-mode .top-bar-content .title {
+  grid-area: title;
+}
+body.light-mode .top-bar-content .mr-2 {
+  grid-area: leftsidebar;
+}
+body.light-mode .top-bar-content .reg {
+  grid-area: regbutton;
+  width: 75px;
+  display: flex;
+  justify-self: flex-end;
+  justify-content: space-between;
+  align-content: center;
+  align-self: center;
+}
+body.light-mode .element-wrapper {
+  padding-top: 75px;
+}
+
+body.dark-mode .top-bar-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    ". . ."
+    "leftsidebar title regbutton"
+    ". . .";
+  height: 50px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  border-color: rgb(170, 166, 166);
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+
+body.dark-mode .top-bar-content .title {
+  grid-area: title;
+}
+body.dark-mode .top-bar-content .mr-2 {
+  grid-area: leftsidebar;
+}
+body.dark-mode .top-bar-content .reg {
+  grid-area: regbutton;
+  width: 75px;
+  display: flex;
+  justify-self: flex-end;
+  justify-content: space-between;
+  align-content: center;
+  align-self: center;
+}
+body.dark-mode .element-wrapper {
+  padding-top: 75px;
+}
+
+body.light-mode .searchfield {
+  width: 380px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(170, 166, 166);
+}
+
+body.dark-mode .searchfield {
+  width: 380px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(170, 166, 166);
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+
+.postview {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 60px minmax(50px, auto) minmax(200px, auto) 20px 300px;
+  grid-template-areas:
+    "title title title"
+    "user . file"
+    "content content content"
+    "state . date"
+    "comment comment comment";
+}
+
+.postview .postview-top {
+  grid-area: title;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: x-large;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  border-color: rgb(170, 166, 166);
+}
+
+.postview .postview-title {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.postview .postview-delete {
+  width: 60px;
+  height: 30px;
+  align-self: center;
+}
+.postview .postview-edit {
+  width: 60px;
+  height: 30px;
+  align-self: center;
+}
+.postview .postview-user {
+  grid-area: user;
+  display: flex;
+  font-weight: bold;
+  justify-self: left;
+  align-self: center;
+  float: left;
+}
+
+.postview .postview-user .photo {
+  font-size: xx-large;
+}
+
+.postview .postview-file {
+  grid-area: file;
+  justify-self: center;
+  align-self: center;
+}
+
+.postview .postview-file .postview-file-button {
+  width: 100px;
+  margin: 0px 0px 10px 0px;
+}
+
+.postview .postview-content {
+  grid-area: content;
+  width: 380px;
+  line-height: 50px;
+  text-overflow: ellipsis;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.postview .postview-state {
+  grid-area: state;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.postview .postview-date {
+  grid-area: date;
+  justify-self: end;
+  font-weight: 100;
+}
+
+.postview .postview-comment {
+  grid-area: comment;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  border-color: rgb(170, 166, 166);
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 75px 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1fr;
+  grid-template-areas:
+    "photo name username"
+    "photo email useremail"
+    "photo edit logout";
+  justify-items: left;
+  height: 75px;
+}
+
+.profile .profile-photo {
+  grid-area: photo;
+  font-size: xx-large;
+}
+.profile .profile-name {
+  grid-area: name;
+}
+.profile .profile-username {
+  grid-area: username;
+}
+.profile .profile-email {
+  grid-area: email;
+}
+.profile .profile-useremail {
+  grid-area: useremail;
+}
+.profile .profile-logout {
+  grid-area: logout;
+  justify-self: center;
+}
+.profile .profile-edit {
+  grid-area: edit;
+}
+body.dark-mode .paginator {
+  background-color: #1a1919;
+  color: #fff;
+
+  border-color: #1a1919;
+}
+body.dark-mode .p-dataview-header {
+  background-color: #1a1919;
+  color: #fff;
+
+  border-width: 0.1px 0px 0px 0px;
+  border-style: solid;
+  border-color: rgb(67, 66, 66);
+}
+
+.comment-list-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.5fr;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "photo username date delete"
+    ". comment comment .";
+  justify-items: left;
+}
+
+.comment-list-item .comment-list-photo {
+  grid-area: photo;
+}
+.comment-list-item .comment-list-username {
+  grid-area: username;
+}
+.comment-list-item .comment-list-date {
+  grid-area: date;
+  justify-self: center;
+}
+.comment-list-item .comment-list-comment {
+  grid-area: comment;
+  width: 350px;
+  line-height: 50px;
+  text-overflow: ellipsis;
+  text-align: left;
+  word-wrap: break-word;
+}
+.comment-list-item .pi-times {
+  grid-area: delete;
+
+  color: red;
+}
+
+body.dark-mode .comment-list-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.5fr;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "photo username date delete"
+    ". comment comment .";
+  justify-items: left;
+  background-color: #1a1919;
+  color: #fff;
+}
+
+body.dark-mode .left-sidebar {
+  background-color: #1a1919;
+  color: #fff;
+}
+
+body.dark-mode .reg-sidebar {
+  background-color: #1a1919;
+  color: #fff;
+}
+
+body.dark-mode .reg-sidebar .title-input {
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+
+body.dark-mode .p-editor-toolbar {
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+
+body.dark-mode .reg-sidebar .calendar-input {
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+body.dark-mode .reg-sidebar .calendar-panel {
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+
+body.dark-mode .reg-sidebar .fileupload-header {
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+body.dark-mode .reg-sidebar .fileupload-content {
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+
+body.dark-mode .input {
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+
+body.dark-mode .p-button {
+  background-color: rgb(131, 5, 166);
+  color: #fff;
+}
+
+.pi-comment {
+  color: yellow;
+}
+
+body.dark-mode .name-input {
+  background-color: rgb(67, 66, 66);
+  color: #fff;
+}
+.edit-email {
+  display: flex;
+}

@@ -1,0 +1,44 @@
+{
+  "feedbacks": [
+    {
+      "id": 1,
+      "rating": 10,
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae."
+    },
+    {
+      "id": 2,
+      "rating": 9,
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae."
+    },
+    {
+      "id": 3,
+      "rating": 8,
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae."
+    },
+    {
+      "id": "d84b5748-e683-411f-9e25-45a71aa955e2",
+      "rating": 10,
+      "text": "cxc"
+    },
+    {
+      "id": "3f438658-62ce-4347-a229-4f7afb856464",
+      "rating": 10,
+      "text": "adfadfa f1r 1"
+    },
+    {
+      "id": "789794c7-af91-4af0-bb12-77cfa8d5aa80",
+      "rating": 5,
+      "text": "afdf af "
+    },
+    {
+      "id": "eb5acd20-cc53-4600-9353-81b5413d4ee4",
+      "rating": 1,
+      "text": "rerer"
+    },
+    {
+      "id": "8c34722f-fc6c-4e21-bfad-31916a056471",
+      "rating": 1,
+      "text": "f"
+    }
+  ]
+}

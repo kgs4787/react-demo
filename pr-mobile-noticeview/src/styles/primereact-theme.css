@@ -1,0 +1,76 @@
+@media screen and (max-width: 576px) {
+  .dataview-demo .product-list-item {
+    display: grid;
+    grid-template-rows: minmax(10px, auto) 120px 30px;
+    grid-template-columns: 0.1fr 1fr 1fr 2fr;
+    grid-template-areas:
+      ". title title title"
+      ". content content content"
+      ". user date state";
+    align-items: stretch; /*세로 방향 정렬*/
+    justify-items: stretch; /*가로 방향 정렬*/
+    align-content: space-between;
+    justify-content: space-between;
+    width: 400px;
+    height: 200px;
+  }
+  .dataview-demo .product-list-item .product-list-title {
+    grid-area: title;
+    font-weight: bold;
+    font-size: x-large;
+  }
+
+  .dataview-demo .product-list-item .product-list-content {
+    grid-area: content;
+    width: 380px;
+    height: 100px;
+    line-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
+  .dataview-demo .product-list-item .product-list-user {
+    grid-area: user;
+    align-self: center;
+    font-weight: bold;
+    display: flex;
+    font-weight: bold;
+    justify-self: left;
+    float: left;
+  }
+  .dataview-demo .product-list-item .product-list-user .profile-photo {
+    font-size: xx-large;
+  }
+  .dataview-demo .product-list-item .product-list-date {
+    grid-area: date;
+    align-self: center;
+  }
+  .dataview-demo .product-list-item .product-list-state {
+    grid-area: state;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  body.dark-mode .dataview-demo .product-list-item {
+    display: grid;
+    grid-template-rows: minmax(10px, auto) 120px 30px;
+    grid-template-columns: 0.1fr 1fr 1fr 2fr;
+    grid-template-areas:
+      ". title title title"
+      ". content content content"
+      ". user date state";
+    align-items: stretch; /*세로 방향 정렬*/
+    justify-items: stretch; /*가로 방향 정렬*/
+    align-content: space-between;
+    justify-content: space-between;
+    width: 400px;
+    height: 200px;
+    background-color: #1a1919;
+    color: #fff;
+  }
+}

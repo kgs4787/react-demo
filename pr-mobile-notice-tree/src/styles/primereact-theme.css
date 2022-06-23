@@ -1,0 +1,22 @@
+.dataview-demo .sm-visible {
+  display: none;
+}
+
+@media screen and (max-width: 965px) {
+  .dataview-demo .sm-invisible {
+    display: none;
+  }
+
+  .dataview-demo .sm-visible {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .dataview-demo .tree-작업명 {
+    width: 50%;
+  }
+
+  .dataview-demo .tree-date {
+    width: 25%;
+  }
+}
