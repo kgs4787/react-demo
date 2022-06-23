@@ -27,7 +27,7 @@ class WindowButton extends Component<Props> {
         color="primary"
         aria-label="one-to-one"
         style={{
-          marginLeft: 10
+          marginLeft: 10,
         }}
         onClick={onClick}
       >

@@ -34,7 +34,7 @@ type State = {
  */
 class Chat extends React.Component<Props, State> {
   state = {
-    messages: []
+    messages: [],
   };
 
   mounted = false;
@@ -57,14 +57,14 @@ class Chat extends React.Component<Props, State> {
      */
     socket.emit('join', {
       user,
-      room: router.query.room
+      room: router.query.room,
     });
 
     /**
      * @desc 서버로부터 전달받은 현재 사용자의 채팅방 입장 응답 처리
      * @desc 마운트 여부 확인 후 receiveMessage 함수 호출
      */
-    socket.on('join', data => {
+    socket.on('join', (data) => {
       if (this.mounted) {
         this.receiveMessage(data);
       }
@@ -74,7 +74,7 @@ class Chat extends React.Component<Props, State> {
      * @desc 서버로부터 전달받은 현재 사용자의 채팅방 퇴장 응답 처리
      * @desc 마운트 여부 확인 후 receiveMessage 함수 호출
      */
-    socket.on('leave', data => {
+    socket.on('leave', (data) => {
       if (this.mounted) {
         this.receiveMessage(data);
       }
@@ -94,7 +94,7 @@ class Chat extends React.Component<Props, State> {
      * @desc 서버로부터 전달받은 현재 사용자의 메시지 입력 응답 처리
      * @desc 마운트 여부 확인 후 receiveMessage 함수 호출
      */
-    socket.on('chat', data => {
+    socket.on('chat', (data) => {
       if (this.mounted) {
         this.receiveMessage(data);
       }
@@ -127,7 +127,7 @@ class Chat extends React.Component<Props, State> {
      */
     socket.emit('leave', {
       user,
-      room: router.query.room
+      room: router.query.room,
     });
   }
 
@@ -142,7 +142,7 @@ class Chat extends React.Component<Props, State> {
     newMessages.push(messages);
     this.setState(
       {
-        messages: newMessages
+        messages: newMessages,
       },
       () => {
         scroll.scrollToBottom();
@@ -155,9 +155,9 @@ class Chat extends React.Component<Props, State> {
    * @desc 사용자가 입력한 메시지 정보를 서버로 송신
    */
   sendMessage = (params: {
-  type: string;
-  message: string;
-  images: Array<{}>;
+    type: string;
+    message: string;
+    images: Array<{}>;
   }) => {
     const { type, message = '', images = [] } = params;
     const { router, chat } = this.props;
@@ -172,7 +172,7 @@ class Chat extends React.Component<Props, State> {
       room: router.query.room,
       type,
       message,
-      images
+      images,
     });
   };
 
@@ -181,7 +181,7 @@ class Chat extends React.Component<Props, State> {
    */
   resetMessages = () => {
     this.setState({
-      messages: []
+      messages: [],
     });
   };
 

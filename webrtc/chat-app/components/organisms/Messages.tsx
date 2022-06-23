@@ -17,17 +17,7 @@ type Props = {
   id?: string;
 };
 
-/**
- * 메시지 목록 컴포넌트
- * @class Messages
- * @extends {Component<Props>}
- */
 class Messages extends React.Component<Props> {
-  /**
-   * 렌더링
-   * @desc 메시지 목록을 순회하며 메시지 컴포넌트 반환
-   * @returns {Component}
-   */
   render() {
     const { messages, myself, id } = this.props;
 
@@ -35,7 +25,7 @@ class Messages extends React.Component<Props> {
       <Grid
         container
         style={{
-          overflow: 'hidden auto'
+          overflow: 'hidden auto',
         }}
         id={id}
       >

@@ -15,22 +15,22 @@ const styles = (theme: Theme) =>
       display: 'flex',
       flexWrap: 'wrap',
       justifyContent: 'center',
-      position: 'relative'
+      position: 'relative',
     },
     textField: {
       flexBasis: '100%',
       marginLeft: theme.spacing.unit,
-      marginRight: theme.spacing.unit
+      marginRight: theme.spacing.unit,
     },
     button: {
-      margin: theme.spacing.unit
+      margin: theme.spacing.unit,
     },
     loader: {
       position: 'absolute',
       display: 'flex',
       alignItems: 'center',
-      height: '100%'
-    }
+      height: '100%',
+    },
   });
 
 type TextFieldProps = {
@@ -54,14 +54,10 @@ type TextFieldProps = {
   rowsMax: number;
 };
 
-/**
- * formik props를 전달해주기 위한 input 요소 HOC
- * @param props formik props
- */
 const WrappedTextField = (props: TextFieldProps) => (
   <TextField
     {...fieldToTextField(props)}
-    onChange={event => {
+    onChange={(event) => {
       const { value } = event.target;
       props.form.setFieldValue(props.field.name, value ? value : '');
     }}
@@ -77,17 +73,7 @@ type Props = {
   submitForm: () => void;
 };
 
-/**
- * 로그인 폼 컴포넌트
- * @class ConnectForm
- * @extends {Component<Props>}
- */
 class ConnectForm extends React.Component<Props> {
-  /**
-   * 렌더링
-   * @desc formik 라이브러리를 활용한 컴포넌트 반환
-   * @returns {Component}
-   */
   render() {
     const { classes, isSubmitting, submitForm } = this.props;
     return (

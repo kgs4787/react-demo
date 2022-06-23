@@ -16,21 +16,21 @@ const styles = (theme: Theme) =>
       bottom: 0,
       padding: theme.spacing.unit * 2,
       background: theme.palette.secondary.main,
-      display: 'flex'
+      display: 'flex',
     },
     inputContainer: {
       flexGrow: 1,
-      alignItems: 'center'
+      alignItems: 'center',
     },
     input: {
-      background: theme.palette.common.white
+      background: theme.palette.common.white,
     },
     buttonContainer: {
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
     },
     button: {
-      margin: theme.spacing.unit
+      margin: theme.spacing.unit,
     },
     paper: {
       padding: theme.spacing.unit,
@@ -41,12 +41,12 @@ const styles = (theme: Theme) =>
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column',
-      overflowY: 'scroll'
+      overflowY: 'scroll',
     },
     active: {
       background: theme.palette.primary.light,
-      color: theme.palette.primary.contrastText
-    }
+      color: theme.palette.primary.contrastText,
+    },
   });
 
 export type Props = {
@@ -59,33 +59,20 @@ export type Props = {
     button: string;
   };
   style?: {};
-  sendMessage: (
-    params: {
+  sendMessage: (params: {
     type: string;
     message: string;
     images: Array<{}>;
-    }
-  ) => void;
+  }) => void;
 };
 
-/**
- * 입력 영역 컴포넌트
- * @class InputArea
- * @extends {Component<Props>}
- */
 class InputArea extends React.Component<Props> {
-  /**
-   * 렌더링
-   * @desc 직접 만든 react-dnd-component 를 활용한 파일 Drag & Drop 여부 감지
-   * @desc 파일 드래그 여부에 따른 이미지 입력 영역 또는 메시지 입력 영역 컴포넌트 반환
-   * @returns {Component}
-   */
   render() {
     const { classes, style } = this.props;
 
     return (
       <NativeFiles>
-        {props => {
+        {(props) => {
           const { canDrop, files } = props;
 
           if (canDrop || files.length) {

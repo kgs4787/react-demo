@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Window } from 'react-motion-components';
 import ChatWindowTitle, {
-  Props as TitleProps
+  Props as TitleProps,
 } from '../molecules/ChatWindowTitle';
 
 type Props = {
@@ -33,7 +33,7 @@ class ChatWindow extends Component<Props> {
           height: 64,
           component: (props: TitleProps) => (
             <ChatWindowTitle receiver={receiver} {...props} />
-          )
+          ),
         }}
       >
         {children}

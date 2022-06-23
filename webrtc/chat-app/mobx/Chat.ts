@@ -60,10 +60,10 @@ class Chat {
       userId: '',
       socketId: '',
       room: '',
-      windows: []
+      windows: [],
     },
     invites: [],
-    users: []
+    users: [],
   };
 
   /**
@@ -117,7 +117,8 @@ class Chat {
     this.state.invites.push(invite);
     this.state.invites = this.state.invites.filter(
       (currInvite, i, self) =>
-        i === self.findIndex(selfInvite => selfInvite.time === currInvite.time)
+        i ===
+        self.findIndex((selfInvite) => selfInvite.time === currInvite.time)
     );
   };
 
@@ -128,7 +129,7 @@ class Chat {
   @action
   removeInvites = (invite: { time: number; sender: { socketId: string } }) => {
     const index = this.state.invites.findIndex(
-      currInvite =>
+      (currInvite) =>
         currInvite.time === invite.time &&
         currInvite.sender.socketId === invite.sender.socketId
     );
@@ -138,13 +139,13 @@ class Chat {
 
   @action
   setWindow = (user: User) => {
-    this.state.user.windows = this.state.users.map(user => ({
+    this.state.user.windows = this.state.users.map((user) => ({
       receiver: {
         userId: user.userId,
-        socketId: user.socketId
+        socketId: user.socketId,
       },
       open: false,
-      messages: []
+      messages: [],
     }));
     this.removeWindow(user);
   };
@@ -157,8 +158,8 @@ class Chat {
       ...currWindow,
       receiver: {
         userId: user.userId,
-        socketId: user.socketId
-      }
+        socketId: user.socketId,
+      },
     });
   };
 
@@ -166,10 +167,10 @@ class Chat {
   getWindow = (user: User) => {
     return (
       this.state.user.windows.find(
-        window => window.receiver.socketId === user.socketId
+        (window) => window.receiver.socketId === user.socketId
       ) || {
         open: false,
-        messages: []
+        messages: [],
       }
     );
   };
@@ -177,7 +178,7 @@ class Chat {
   @action
   removeWindow = (user: User) => {
     this.state.user.windows = this.state.user.windows.filter(
-      window => window.receiver.socketId !== user.socketId
+      (window) => window.receiver.socketId !== user.socketId
     );
   };
 
@@ -203,7 +204,7 @@ class Chat {
     this.state.user.windows = this.state.user.windows.map((window: Window) => {
       if (window.receiver.socketId === receiver.socketId) {
         window.messages.push({
-          ...params
+          ...params,
         });
       }
       return window;
@@ -214,7 +215,9 @@ class Chat {
         window.messages = window.messages.filter(
           (currMessage, i, self) =>
             i ===
-            self.findIndex(selfMessage => selfMessage.time === currMessage.time)
+            self.findIndex(
+              (selfMessage) => selfMessage.time === currMessage.time
+            )
         );
       }
       return window;

@@ -17,16 +17,16 @@ const styles = (theme: Theme) =>
   createStyles({
     root: {
       margin: theme.spacing.unit * 2,
-      overflow: 'hidden'
+      overflow: 'hidden',
     },
     space: {
       ...theme.mixins.toolbar,
-      marginBottom: 10
+      marginBottom: 10,
     },
     paper: {
       ...theme.mixins.gutters(),
       paddingTop: theme.spacing.unit * 2,
-      paddingBottom: theme.spacing.unit * 2
+      paddingBottom: theme.spacing.unit * 2,
     },
     window: {
       margin: '5px 0',
@@ -35,8 +35,8 @@ const styles = (theme: Theme) =>
       height: '100%',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between'
-    }
+      justifyContent: 'space-between',
+    },
   });
 
 type Props = {
@@ -87,7 +87,7 @@ const withMain = (Page: any) => {
   class MainWrapper extends React.Component<Props> {
     static async getInitialProps(ctx: {}) {
       return {
-        ...(Page.getInitialProps ? await Page.getInitialProps(ctx) : null)
+        ...(Page.getInitialProps ? await Page.getInitialProps(ctx) : null),
       };
     }
 
@@ -126,7 +126,7 @@ const withMain = (Page: any) => {
         /**
          * @desc 서버로부터 전달받은 현재 사용자의 초대받은 목록 업데이트 응답 처리
          */
-        socket.on('inviteRoom', data => {
+        socket.on('inviteRoom', (data) => {
           chat.setInvites(data);
         });
 
@@ -144,7 +144,7 @@ const withMain = (Page: any) => {
 
         socket.on('chatWindow', ({ sender, type, message, images, time }) => {
           const window = chat.user.windows.find(
-            window => window.receiver.socketId === sender.socketId
+            (window) => window.receiver.socketId === sender.socketId
           ) || { open: false };
 
           chat.setWindowMessage({
@@ -153,13 +153,13 @@ const withMain = (Page: any) => {
             type,
             message,
             images,
-            time
+            time,
           });
 
           if (window.open) {
             scroller.scrollTo('window', {
               smooth: true,
-              containerId: sender.socketId
+              containerId: sender.socketId,
             });
           }
         });
@@ -174,60 +174,17 @@ const withMain = (Page: any) => {
       socket.emit('logout', { user });
     };
 
-    /**
-     * 다른 사용자 초대하기
-     */
-    inviteRoom = (params: { sender: {}; receiver: {}; room: string }) => {
-      const { socket } = this.props.chat;
-      const { sender, receiver, room } = params;
-
-      /**
-       * @desc 다른 사용자 초대를 위한 클라이언트 측 요청
-       * @desc 현재 사용자정보, 초대받을 사용자 정보, 채팅방 이름 전달
-       */
-      socket.emit('inviteRoom', {
-        sender,
-        receiver,
-        room
-      });
-    };
-
-    /**
-     * 초대 정보 삭제
-     */
-    removeInvite = (invite: {}) => {
-      const { chat } = this.props;
-      chat.removeInvites(invite);
-    };
-
-    /**
-     * 채팅방 이등
-     */
-    moveRoom = (params: { type: 'join' | 'leave'; room: string }) => {
-      const { user, socket } = this.props.chat;
-      const { type, room } = params;
-
-      /**
-       * @desc 채팅방 이동을 위한 클라이언트 측 요청
-       * @desc 현재 사용자 정보 및 채팅방 이름 전달
-       */
-      socket.emit(type, {
-        user,
-        room
-      });
-    };
-
     sendMessage = (params: {
-    type: string;
-    message: string;
-    images: Array<{}>;
-    receiver?: { socketId: string };
+      type: string;
+      message: string;
+      images: Array<{}>;
+      receiver?: { socketId: string };
     }) => {
       const {
         type,
         message = '',
         images = [],
-        receiver = { socketId: '' }
+        receiver = { socketId: '' },
       } = params;
       const { chat } = this.props;
       const { socket, user } = chat;
@@ -236,29 +193,29 @@ const withMain = (Page: any) => {
       socket.emit('chatWindow', {
         sender: {
           userId: user.userId,
-          socketId: user.socketId
-        },
-        receiver,
-        type,
-        message,
-        images
-      });
-
-      chat.setWindowMessage({
-        user: {
-          userId: user.userId,
-          socketId: user.socketId
+          socketId: user.socketId,
         },
         receiver,
         type,
         message,
         images,
-        time
+      });
+
+      chat.setWindowMessage({
+        user: {
+          userId: user.userId,
+          socketId: user.socketId,
+        },
+        receiver,
+        type,
+        message,
+        images,
+        time,
       });
 
       scroller.scrollTo('window', {
         smooth: true,
-        containerId: receiver.socketId
+        containerId: receiver.socketId,
       });
     };
 
@@ -318,7 +275,7 @@ const withMain = (Page: any) => {
                   style={{
                     position: 'relative',
                     padding: '0 16px',
-                    maxHeight: 100
+                    maxHeight: 100,
                   }}
                   sendMessage={this.sendMessage}
                 />

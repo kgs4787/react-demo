@@ -24,7 +24,7 @@ class ChatWindowTitle extends Component<Props> {
       toggleWindowSize,
       handleMouseDown,
       removeWindow,
-      isFulling
+      isFulling,
     } = this.props;
 
     return (
@@ -37,7 +37,7 @@ class ChatWindowTitle extends Component<Props> {
           <Typography
             variant="h6"
             style={{
-              flexGrow: 1
+              flexGrow: 1,
             }}
           >
             {receiver.userId}
