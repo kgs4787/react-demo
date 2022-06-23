@@ -1,11 +1,9 @@
 import * as React from 'react';
 import Head from 'next/head';
-import { withStyles } from '@material-ui/core/styles';
 import AppBar from '../organisms/AppBar';
 import { observer, inject } from 'mobx-react';
 import * as Routes from '../../lib/routes';
 import { Theme, createStyles } from '@material-ui/core';
-import withBackground from '../wrappers/withBackground';
 import { User } from '../../mobx/Chat';
 import ChatWindow from '../organisms/ChatWindow';
 import Paper from '@material-ui/core/Paper';
@@ -286,10 +284,6 @@ const withMain = (Page: any) => {
       );
     }
   }
-
-  return withStyles(styles, { name: 'MainWrapper' })(
-    withBackground(MainWrapper as any)
-  );
 };
 
 export default withMain;
