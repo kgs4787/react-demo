@@ -1,14 +1,43 @@
 import * as React from 'react';
 import Head from 'next/head';
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '../organisms/AppBar';
+import withBackground from '../wrappers/withBackground';
 import { observer, inject } from 'mobx-react';
 import * as Routes from '../../lib/routes';
+import { Theme, createStyles } from '@material-ui/core';
 import { User } from '../../mobx/Chat';
 import ChatWindow from '../organisms/ChatWindow';
 import Paper from '@material-ui/core/Paper';
 import InputArea from '../organisms/InputArea';
 import Messages from '../organisms/Messages';
 import { scroller } from 'react-scroll';
+
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      margin: theme.spacing.unit * 2,
+      overflow: 'hidden',
+    },
+    space: {
+      ...theme.mixins.toolbar,
+      marginBottom: 10,
+    },
+    paper: {
+      ...theme.mixins.gutters(),
+      paddingTop: theme.spacing.unit * 2,
+      paddingBottom: theme.spacing.unit * 2,
+    },
+    window: {
+      margin: '5px 0',
+      padding: theme.spacing.unit,
+      boxSizing: 'border-box',
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+    },
+  });
 
 type Props = {
   chat: {
@@ -224,6 +253,9 @@ const withMain = (Page: any) => {
       );
     }
   }
+  return withStyles(styles, { name: 'MainWrapper' })(
+    withBackground(MainWrapper as any)
+  );
 };
 
 export default withMain;
