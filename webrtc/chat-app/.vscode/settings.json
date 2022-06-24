@@ -1,6 +1,0 @@
-{
-  "editor.formatOnSave": true,
-  "prettier.singleQuote": true,
-  "files.eol": "\n",
-  "docthis.includeMemberOfOnClassMembers": false
-}
